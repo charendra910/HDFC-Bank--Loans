@@ -1,0 +1,155 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="HDFC_Loans.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+     <script runat="server">
+
+         protected void Page_Load(object sender, EventArgs e)
+         {
+             ScriptManager.ScriptResourceMapping.AddDefinition("jquery",
+                 new ScriptResourceDefinition
+                 {
+                     Path = "~/Scripts/jquery-3.3.1.min.js", 
+                     DebugPath = "~/Scripts/jquery-3.3.1.js", 
+                     CdnPath = "https://code.jquery.com/jquery-3.3.1.min.js", 
+                     CdnDebugPath = "https://code.jquery.com/jquery-3.3.1.js" 
+                 });
+
+             if (!IsPostBack && Session["LoggedInUsername"] != null)
+             {
+                
+                 lblLogin.Text = Session["LoggedInUsername"].ToString();
+             }
+         }
+
+     </script>
+    <style type="text/css">
+        .auto-style1 {
+            height: 41px;
+            background-color: antiquewhite;
+        }
+        .auto-style2 {
+            height: 41px;
+            width: 136px;
+             background-color: antiquewhite;
+        }
+        .auto-style6 {
+            height: 199px;
+             background-color: antiquewhite;
+        }
+        .auto-style7 {
+            width: 112px;
+             background-color: antiquewhite;
+        }
+        .auto-style8 {
+            width: 184px;
+             background-color: antiquewhite;
+        }
+        .auto-style9 {
+            width: 206px;
+             background-color: antiquewhite;
+        }
+        .auto-style12 {
+            width: 217px;
+             background-color: antiquewhite;
+        }
+        .auto-style14 {
+            height: 65px;
+              background-color: seagreen;
+              color: #fff; 
+        }
+        #header{
+             background-color: #3498db;
+             color: #fff;
+        }
+        #btmLogout{
+            background-color:red;
+        }
+        .auto-style15 {
+            height: 591px;
+        }
+        .auto-style16 {
+            width: 136px;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body> 
+    <form id="form1" runat="server">
+        <div>
+            <table border="1" cellspacing="0" cellpadding="5" class="auto-style15">
+                <tr>
+                    <th colspan="5" id="header">
+                     
+                        <h2>HDFC Loans - Next Step to Dream</h2>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="4" class="auto-style1">
+                        <br />
+                        Logged In:
+                        <asp:Label ID="lblLogin" runat="server" Text="UserEmail"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Name:Harendra Chaudhary<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enrollment:-21SOECE11607</td>
+                    <td class="auto-style2">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="btmLogout" SkinID="btn" runat="server" OnClick="btmLogout_Click" Text="Logout" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <th class="auto-style7">
+                        <a href="WebForm1.aspx">Home</a>
+                    </th>
+                    <th class="auto-style8">
+                        <a href="NewApplication.aspx">New Application</a>
+                    </th>
+                    <th class="auto-style9">
+                        <a href="UpdateApplication.aspx">Update Application</a>
+                    </th>
+                    <th class="auto-style12">
+                        <a href="RemoveApplication.aspx">Remove Application</a>
+                    </th>
+                    <th class="auto-style16">
+                        <a href="ViewAll.aspx">View All</a>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="5" class="auto-style6">
+
+                      <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+           
+                    </asp:ContentPlaceHolder>
+                </td>
+              </tr>
+
+
+                
+                <tr>
+                    <td colspan="5" class="auto-style14">
+                        <center><footer>
+                            <h1>Contact Us:</h1>
+                            <p class="subheading">HDFC Loan Systems, <br /> Mumbai, Maharashtra, India</p>
+                        </footer></center>
+                    </td>
+                </tr>
+            </table>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    
+</body>
+</html>
