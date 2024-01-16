@@ -6,8 +6,8 @@
         .login-box {
             width: 400px;
             padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
+            border: 3px solid #ccc;
+            border-radius: 20px;
             margin: 50px auto;
             background-color: #f9f9f9;
         }
